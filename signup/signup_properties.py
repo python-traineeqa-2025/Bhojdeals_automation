@@ -4,8 +4,8 @@ from signup.signup_locators import SignUpLocators
 class SignUpProperties(SignUpLocators):
 
     @property
-    def signup_options(self):
-        return self.driver.find_element(*SignUpLocators.SIGNUP_OPTIONS)
+    def signup_homepage(self):
+        return self.driver.find_element(*SignUpLocators.SIGNUP_HOMEPAGE)
 
     @property
     def name_input(self):
@@ -37,5 +37,5 @@ class SignUpProperties(SignUpLocators):
 
     @property
     def dropdown_country(self):
-        return self.driver.find_elements(*SignUpLocators.COUNTRY_DROPDOWN)
+        return self.driver.find_element(*SignUpLocators.COUNTRY_DROPDOWN)
 

@@ -1,15 +1,16 @@
+from selenium.webdriver.support.select import Select
+
 from signup.signup_properties import SignUpProperties
 
 
 class SignUpPage(SignUpProperties):
     def __init__(self,driver):
         self.driver=driver
-        self.dropdown = None
 
     def signup_page(self,uname,email_id,pwd,confirm_pwd,phone):
 
-        choose_signup=self.signup_options
-        choose_signup.click()
+        home_signup=self.signup_homepage
+        home_signup.click()
 
         name=self.name_input
         name.click()
@@ -34,18 +35,17 @@ class SignUpPage(SignUpProperties):
         checkbox=self.term_condtion_checkbox
         checkbox.click()
 
-
-        signup=self.signup_click
-        signup.click()
-
         dropdown=self.dropdown_country
-        dropdown.click()
+        drp = Select(dropdown)
+        drp.select_by_visible_text("Nepal")
 
-    i = 0
-    while i < len(dropdown):
-        if (dropdown[i].text == "Nepal"):
-            dropdown[i].click()
-        i = i + 1
+
+        signup_button = self.signup_click
+        signup_button.click()
+
+
+
+
 
 
 
