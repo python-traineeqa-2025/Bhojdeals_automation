@@ -1,4 +1,4 @@
-from signup.signup_locators import SignUpLocators
+from page_objects.signup.signup_locators import SignUpLocators
 
 
 class SignUpProperties(SignUpLocators):

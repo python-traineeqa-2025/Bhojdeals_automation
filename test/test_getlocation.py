@@ -1,8 +1,8 @@
 import logging
 import time
 
-from get_location.getlocation_page import GetLocationPage
-from login.login_page import LoginPage
+from page_objects.get_location.getlocation_page import GetLocationPage
+from page_objects.login.login_page import LoginPage
 from setup.base_test import BaseTest
 
 

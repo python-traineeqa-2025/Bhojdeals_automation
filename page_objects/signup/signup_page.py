@@ -1,6 +1,6 @@
 from selenium.webdriver.support.select import Select
 
-from signup.signup_properties import SignUpProperties
+from page_objects.signup.signup_properties import SignUpProperties
 
 
 class SignUpPage(SignUpProperties):

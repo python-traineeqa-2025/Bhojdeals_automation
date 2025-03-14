@@ -1,11 +1,9 @@
 import logging
 import time
 
-from selenium.common import TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
-from login.login_page import LoginPage
+
+from page_objects.login.login_page import LoginPage
 from setup.base_test import BaseTest
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestLogin(BaseTest):

@@ -1,7 +1,7 @@
 import time
 
 from setup.base_test import BaseTest
-from signup.signup_page import SignUpPage
+from page_objects.signup.signup_page import SignUpPage
 
 
 class TestSignup(BaseTest):

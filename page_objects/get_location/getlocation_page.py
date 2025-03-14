@@ -1,4 +1,4 @@
-from get_location.getlocation_properties import GetLocationProperties
+from page_objects.get_location.getlocation_properties import GetLocationProperties
 
 
 class GetLocationPage(GetLocationProperties):
