@@ -17,9 +17,10 @@ class TestGetLocation(BaseTest):
         logging.info("get password successfull")
         login=LoginPage(self.driver)
         login.login_page(email,password)
+
         getlocation_p=GetLocationPage(self.driver)
         getlocation_p.getlocation_page()
-        logging.info("product page")
+
         time.sleep(10)
 
 
