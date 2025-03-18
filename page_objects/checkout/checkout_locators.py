@@ -11,7 +11,7 @@ class CheckoutLocators(object):
     DELIVERY_DAY=(By.XPATH,"//a[@id='__BVID__194___BV_tab_button__']")
 
     # DELIVERY_TIME=(By.XPATH,"//select[@id='__BVID__435']")
-    DELIVERY_NOTE=(By.XPATH,"//textarea[@id='__BVID__440']")
+    DELIVERY_NOTE=(By.XPATH,"//textarea[@id='__BVID__201']")
     PAYMENT_METHOD=(By.XPATH,"//label[@for='radiobtn']")
 
 

@@ -14,7 +14,7 @@ class CheckoutPage(CheckoutProperties):
     def __init__(self,driver):
         self.driver=driver
 
-    def checkout_page(self,address):
+    def checkout_page(self,address,note):
         #checkout button click
         checkout_button = WebDriverWait(self.driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Proceed to check out']")))
@@ -48,6 +48,11 @@ class CheckoutPage(CheckoutProperties):
         EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
         delivery_day.click()
         time.sleep(6)
+
+
+        extra_note=WebDriverWait(self.driver,15).until(EC.element_to_be_clickable((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
+        extra_note.click()
+        extra_note.send_keys(note)
 
 
 

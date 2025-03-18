@@ -29,3 +29,6 @@ class CheckoutProperties(CheckoutLocators):
     def delivery_day(self):
         return self.add_deliver_address.find_element(*CheckoutLocators.DELIVERY_DAY)
 
+    @property
+    def delivery_note(self):
+        return self.add_deliver_address.find_element(*CheckoutLocators.DELIVERY_NOTE)
