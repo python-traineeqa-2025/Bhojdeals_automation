@@ -11,16 +11,22 @@ from setup.base_test import BaseTest
 
 class TestAddToCart(BaseTest):
     def test_add_to_cart(self):
-        url=self.cred["base_url"]
+        url = self.cred["base_url"]
         self.driver.get(url)
+        logging.info("driver initialized")
 
-        login=LoginPage(self.driver)
-        uname=self.cred["email"]
-        pwd=self.cred["password"]
-        login.login_page(uname,pwd)
+        loginpage = LoginPage(self.driver)
+        email = self.cred["email"]
+        logging.info("Email entered")
+
+        pwd = self.cred["password"]
+        logging.info("Password entered")
+        loginpage.login_page(email, pwd)
+        time.sleep(5)
 
         getlocation_p=GetLocationPage(self.driver)
         getlocation_p.getlocation_page()
+        time.sleep(5)
 
         search = SearchPage(self.driver)
         search.search_page()
@@ -28,7 +34,7 @@ class TestAddToCart(BaseTest):
 
         view_menu = ViewMenuPage(self.driver)
         view_menu.view_menu_page()
-        time.sleep(5)
+        time.sleep(10)
 
         add_cart=AddToCartPage(self.driver)
         add_cart.add_tocart_page()

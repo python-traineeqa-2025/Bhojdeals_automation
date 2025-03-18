@@ -16,7 +16,7 @@ class LoginPage(LoginProperties):
         login_home=self.home_login
         login_home.click()
 
-        # email_ad=WebDriverWait(self.driver,15).until(EC.element_to_be_clickable((By.ID,"__BVID__76")))
+        # email_ad=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,"//input[@placeholder='Email']")))
         email_ad=self.email_input
         email_ad.click()
         email_ad.send_keys(email)
