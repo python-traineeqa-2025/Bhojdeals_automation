@@ -14,8 +14,11 @@ class ViewMenuPage(ViewMenuPropertries):
         view=self.select_restaurant
         view.click()
 
-        # view_category=self.select_category
-        # view_category.click()
+        view_category=self.select_category
+        view_category.click()
+
+        # view_map=self.view_map
+        # view_map.click()
 
 
 
