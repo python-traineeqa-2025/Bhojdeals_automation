@@ -10,3 +10,7 @@ class ViewMenuPropertries(ViewMenuLocators):
     @property
     def select_category(self):
         return self.driver.find_element(*ViewMenuLocators.MENU_CATEGORY)
+
+    # @property
+    # def view_map(self):
+    #     return self.driver.find_element(*ViewMenuLocators.MAP)

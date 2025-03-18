@@ -1,3 +1,4 @@
+import logging
 import time
 
 from page_objects.get_location.getlocation_page import GetLocationPage
@@ -20,13 +21,18 @@ class TestViewMenu(BaseTest):
 
         location=GetLocationPage(self.driver)
         location.getlocation_page()
+        time.sleep(5)
 
         search=SearchPage(self.driver)
         search.search_page()
+        time.sleep(2)
 
         view_menu=ViewMenuPage(self.driver)
         view_menu.view_menu_page()
+        logging.info("View menu page")
         time.sleep(5)
+
+
 
 
 
