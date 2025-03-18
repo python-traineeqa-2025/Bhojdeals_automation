@@ -1,3 +1,5 @@
+from selenium.webdriver.common.by import By
+
 from page_objects.add_tocart.add_tocart_props import AddToCartProperties
 
 
