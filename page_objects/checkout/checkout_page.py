@@ -44,7 +44,7 @@ class CheckoutPage(CheckoutProperties):
         time.sleep(6)
 
         #delivery day
-        delivery_day = WebDriverWait(self.driver, 10).until(
+        delivery_day = WebDriverWait(self.driver, 15).until(
         EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
         delivery_day.click()
         time.sleep(6)
@@ -53,6 +53,9 @@ class CheckoutPage(CheckoutProperties):
         extra_note=WebDriverWait(self.driver,15).until(EC.element_to_be_clickable((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
         extra_note.click()
         extra_note.send_keys(note)
+
+        payment=self.payment_method
+        payment.click()
 
 
 

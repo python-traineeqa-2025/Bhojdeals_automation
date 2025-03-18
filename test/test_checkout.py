@@ -15,6 +15,7 @@ class TestCheckout(BaseTest):
         url = self.cred["base_url"]
         self.driver.get(url)
         logging.info("driver initialized")
+        time.sleep(5)
 
         login = LoginPage(self.driver)
         uname = self.cred["email"]

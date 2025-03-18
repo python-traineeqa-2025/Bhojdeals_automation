@@ -7,16 +7,19 @@ from setup.base_test import BaseTest
 
 
 class TestGetLocation(BaseTest):
-    def test_login_first(self):
+    def test_get_location(self):
         url = self.cred["base_url"]
         self.driver.get(url)
-        logging.info("driver initiliazed")
-        email=self.cred['email']
-        logging.info("get email successfull")
-        password=self.cred['password']
-        logging.info("get password successfull")
-        login=LoginPage(self.driver)
-        login.login_page(email,password)
+        logging.info("driver initialized")
+
+        loginpage = LoginPage(self.driver)
+        email = self.cred["email"]
+        logging.info("Email entered")
+
+        pwd = self.cred["password"]
+        logging.info("Password entered")
+        loginpage.login_page(email, pwd)
+        time.sleep(10)
 
         getlocation_p=GetLocationPage(self.driver)
         getlocation_p.getlocation_page()

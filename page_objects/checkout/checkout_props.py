@@ -32,3 +32,7 @@ class CheckoutProperties(CheckoutLocators):
     @property
     def delivery_note(self):
         return self.add_deliver_address.find_element(*CheckoutLocators.DELIVERY_NOTE)
+
+    @property
+    def payment_method(self):
+        return self.add_deliver_address.find_element(*CheckoutLocators.PAYMENT_METHOD )
