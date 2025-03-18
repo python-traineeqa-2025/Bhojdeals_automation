@@ -19,12 +19,11 @@ class TestGetLocation(BaseTest):
         pwd = self.cred["password"]
         logging.info("Password entered")
         loginpage.login_page(email, pwd)
-        time.sleep(10)
+        time.sleep(5)
 
         getlocation_p=GetLocationPage(self.driver)
         getlocation_p.getlocation_page()
-
-        time.sleep(10)
+        time.sleep(5)
 
 
 

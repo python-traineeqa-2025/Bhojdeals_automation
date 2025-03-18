@@ -14,13 +14,14 @@ class ViewMenuPage(ViewMenuPropertries):
     def view_menu_page(self):
         view=self.select_restaurant
         view.click()
-        parent=self.driver.find_element(By.XPATH,'//div[contains(@class,"category-tab")]//div[@class="nav"]')
-        view_cat=parent.find_element(By.XPATH,'///li//a[text()="Mo:Mo')
-        # view_category=WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.XPATH,'//div[contains(@class,"category-tab")]//li//a[text()="Mo:Mo"]')))
-        view_cat.click()
+        self.driver.execute_script('scrollBy(0,1000)')
 
-        # view_map=self.view_map
-        # view_map.click()
+        # parent=self.driver.find_element(By.XPATH,'//div[contains(@class,"category-tab")]//div[@class="nav"]')
+        # view_cat=parent.find_element(By.XPATH,'///li//a[text()="Mo:Mo')
+        view_category=WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.XPATH,"//a[normalize-space()='Mo:Mo']")))
+        view_category.click()
+
+
 
 
 

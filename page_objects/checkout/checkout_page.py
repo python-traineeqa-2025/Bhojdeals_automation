@@ -21,6 +21,7 @@ class CheckoutPage(CheckoutProperties):
         checkout_button.click()
         time.sleep(5)
 
+        self.driver.execute_script('scrollBy(0,1000)')
         #click on add delivery button
         add_delivery_btn= WebDriverWait(self.driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//a[@class='addnew-btn']")))
