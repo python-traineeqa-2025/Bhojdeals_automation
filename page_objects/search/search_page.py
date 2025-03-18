@@ -1,3 +1,4 @@
+
 import logging
 
 from selenium.webdriver.common.keys import Keys
@@ -13,7 +14,7 @@ class SearchPage(SearchProperties):
     def search_page(self):
         searchbox = self.search_input
         searchbox.click()
-        searchbox.send_keys("pizza")
+        searchbox.send_keys("amore pizza")
         searchbox.send_keys(Keys.ENTER)
 
         WebDriverWait(self.driver, 10).until(
@@ -23,8 +24,12 @@ class SearchPage(SearchProperties):
         dropdown_item = self.dropdown_items
 
         for item in dropdown_item:
-            logging.info(f"Found: {item.text}")
-            if item.text.strip() == "Amore Pizza(Koteshwor)":
+            # logging.info(f"Found: {item.text}")
+            if item.text.strip() == "Amore Pizza (Koteshwor)":
                 logging.info("Clicking on Amore Pizza (Koteshwor)")
                 item.click()
                 break
+
+
+
+

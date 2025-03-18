@@ -1,3 +1,4 @@
+
 from page_objects.search.search_locators import SearchLocators
 
 class SearchProperties:

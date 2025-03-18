@@ -1,11 +1,9 @@
 {
-  "base_url": "https://www.bhojdeals.com/",
+  "base_url":"https://www.bhojdeals.com/",
   "name":"Ramesh Thapa",
-  "email":"ramesh@thapa.com",
+  "email":"ramesh123@thapa.com",
   "password":"Qwerty88@@",
   "confirm_password":"Qwerty88@@",
-  "mobile_number": 9876543234
-
-
+  "mobile_number":9873543222
 
 }
