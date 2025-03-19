@@ -61,6 +61,8 @@ class SearchPage(SearchProperties):
         category_filter=self.browse_category
         category_filter.click()
 
-
+    def cuisine_filter(self):
+        cuisine_filter=self.browse_cuisine
+        cuisine_filter.click()
 
 

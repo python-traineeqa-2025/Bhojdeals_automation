@@ -22,3 +22,7 @@ class SearchProperties:
     @property
     def browse_category(self):
         return self.driver.find_element(*SearchLocators.BROWSER_CATEGORY)
+
+    @property
+    def browse_cuisine(self):
+        return self.driver.find_element(*SearchLocators.BROWSER_CUISINE)
