@@ -1,7 +1,6 @@
 import logging
 import time
 
-from selenium.webdriver.common.by import By
 
 from page_objects.get_location.getlocation_page import GetLocationPage
 from page_objects.search.search_page import SearchPage

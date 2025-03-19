@@ -9,6 +9,7 @@ class ViewMenuPage(ViewMenuPropertries):
 
     def __init__(self, driver):
         self.driver = driver
+        self.wait=WebDriverWait(self.driver, 10)
 
 
     def view_menu_page(self):
@@ -18,7 +19,7 @@ class ViewMenuPage(ViewMenuPropertries):
 
         # parent=self.driver.find_element(By.XPATH,'//div[contains(@class,"category-tab")]//div[@class="nav"]')
         # view_cat=parent.find_element(By.XPATH,'///li//a[text()="Mo:Mo')
-        view_category=WebDriverWait(self.driver,10).until(EC.element_to_be_clickable((By.XPATH,"//a[normalize-space()='Mo:Mo']")))
+        view_category=self.wait.until(EC.element_to_be_clickable((By.XPATH,"//a[normalize-space()='Mo:Mo']")))
         view_category.click()
 
 

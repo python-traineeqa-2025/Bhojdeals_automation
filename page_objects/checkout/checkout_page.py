@@ -13,17 +13,18 @@ class CheckoutPage(CheckoutProperties):
 
     def __init__(self,driver):
         self.driver=driver
+        self.wait=WebDriverWait(self.driver, 10)
 
     def checkout_page(self,address,note):
         #checkout button click
-        checkout_button = WebDriverWait(self.driver, 10).until(
+        checkout_button = self.wait.until(
         EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Proceed to check out']")))
         checkout_button.click()
         time.sleep(5)
 
         self.driver.execute_script('scrollBy(0,1000)')
         #click on add delivery button
-        add_delivery_btn= WebDriverWait(self.driver, 10).until(
+        add_delivery_btn= self.wait.until(
         EC.element_to_be_clickable((By.XPATH, "//a[@class='addnew-btn']")))
         add_delivery_btn.click()
 
@@ -45,13 +46,13 @@ class CheckoutPage(CheckoutProperties):
         time.sleep(6)
 
         #delivery day
-        delivery_day = WebDriverWait(self.driver, 15).until(
+        delivery_day =self.wait.until(
         EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
         delivery_day.click()
         time.sleep(6)
 
 
-        extra_note=WebDriverWait(self.driver,15).until(EC.element_to_be_clickable((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
+        extra_note=self.wait.until(EC.element_to_be_clickable((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
         extra_note.click()
         extra_note.send_keys(note)
 
