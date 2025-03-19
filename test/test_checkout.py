@@ -23,8 +23,6 @@ class TestCheckout(BaseTest):
         login.login_page(uname, pwd)
         logging.info("Successful Login")
 
-
-
         location = GetLocationPage(self.driver)
         location.getlocation_page()
         time.sleep(5)
@@ -46,7 +44,7 @@ class TestCheckout(BaseTest):
         logging.info("Checkingout")
 
         checkout=CheckoutPage(self.driver)
-        checkout.checkout_page("Baneshowr","Add extra chilli flakes")
+        checkout.checkout_page("Baneshwor","Add extra chilli flakes")
         time.sleep(4)
         logging.info("checkout complete")
 

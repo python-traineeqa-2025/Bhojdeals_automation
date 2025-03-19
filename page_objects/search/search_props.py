@@ -14,3 +14,11 @@ class SearchProperties:
     @property
     def dropdown_items(self):
         return self.driver.find_elements(*SearchLocators.DROPDOWN_ITEMS)
+
+    @property
+    def filter(self):
+        return self.driver.find_element(*SearchLocators.TODAYS_DEAL)
+
+    @property
+    def browse_category(self):
+        return self.driver.find_element(*SearchLocators.BROWSER_CATEGORY)
