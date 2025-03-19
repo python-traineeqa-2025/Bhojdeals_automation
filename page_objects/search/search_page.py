@@ -26,12 +26,14 @@ class SearchPage(SearchProperties):
         )
 
         dropdown_item = self.dropdown_items
-        if excepted:
-            for item in dropdown_item:
-                # logging.info(f"Found: {item.text}")
+        # if excepted:
+        for item in dropdown_item:
+
+            logging.info(f"Found: {item.text}")
+            if excepted:
                 if item.text.strip() == excepted:
-                # if item.text.strip() == "Amore Pizza (Koteshwor)":
-                    logging.info("Clicking on Amore Pizza (Koteshwor)")
+                    # if item.text.strip() == "Amore Pizza (Koteshwor)":
+                    logging.info(f"{item.text.strip()} item matches with expected {excepted}")
                     item.click()
                     break
 
