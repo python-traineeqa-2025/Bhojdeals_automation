@@ -29,7 +29,7 @@ class TestCheckout(BaseTest):
         logging.info("got location")
 
         search=SearchPage(self.driver)
-        search.search_page()
+        search.search_page("amore pizza","Amore Pizza (Koteshwor)")
         time.sleep(2)
         logging.info("search product")
 

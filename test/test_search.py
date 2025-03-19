@@ -17,7 +17,7 @@ class TestSearch (BaseTest):
         getlocation.getlocation_page()
 
         search = SearchPage(self.driver)
-        search.search_page("amore pizza")
+        search.search_page("amore pizza","Amore Pizza (Koteshwor)")
         time.sleep(6)
 
 
