@@ -12,7 +12,8 @@ from page_objects.search.search_props import SearchProperties
 
 class SearchPage(SearchProperties):
     def __init__(self, driver):
-        self.driver = driver #can add webdriver wait here so that there's no need to initialize it everytime
+        self.driver = driver
+        self.wait=WebDriverWait(driver,10)
 
     def search_page(self,food,excepted=None): #can be named search_item
         searchbox = self.search_input
@@ -21,37 +22,36 @@ class SearchPage(SearchProperties):
         # searchbox.send_keys("amore pizza")
         searchbox.send_keys(Keys.ENTER)
 
-        WebDriverWait(self.driver, 10).until(
+        self.wait.until(
             EC.visibility_of_element_located((By.CLASS_NAME, "main-auto-suggestion"))
         )
 
         dropdown_item = self.dropdown_items
-        if excepted:
-            for item in dropdown_item:
-                # logging.info(f"Found: {item.text}")
-                if item.text.strip() == excepted:
-                # if item.text.strip() == "Amore Pizza (Koteshwor)":
-                    logging.info("Clicking on Amore Pizza (Koteshwor)")
-                    item.click()
-                    break
 
-    def invalid_search(self): #why is this called invalid search
-        searchbox = self.search_input
-        searchbox.click()
-        searchbox.send_keys("pizz")
-        searchbox.send_keys(Keys.ENTER)
-
-        WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.CLASS_NAME,"main-auto-suggestion")) #since this locator is used multiple times, can be added to locator/prop file and used from there
-        )
-
-        dropdown_item = self.dropdown_items
         for item in dropdown_item:
             # logging.info(f"Found: {item.text}")
-            if item.text.strip() == "Pepe Pizza (Radhe Radhe)":
-                logging.info("Clicking on pepe Pizza ")
+            if item.text.strip() == "Amore Pizza (Koteshwor)":
+                logging.info("Clicking on Amore Pizza (Koteshwor)")
                 item.click()
                 break
+
+    # def invalid_search(self):
+    #     searchbox = self.search_input
+    #     searchbox.click()
+    #     searchbox.send_keys("pizz")
+    #     searchbox.send_keys(Keys.ENTER)
+    #
+    #     WebDriverWait(self.driver, 10).until(
+    #         EC.visibility_of_element_located((By.CLASS_NAME,"main-auto-suggestion"))
+    #     )
+    #
+    #     dropdown_item = self.dropdown_items
+    #     for item in dropdown_item:
+    #         # logging.info(f"Found: {item.text}")
+    #         if item.text.strip() == "Pepe Pizza (Radhe Radhe)":
+    #             logging.info("Clicking on pepe Pizza ")
+    #             item.click()
+    #             break
 
 
     def deal_filter(self):
