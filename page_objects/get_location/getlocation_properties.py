@@ -9,5 +9,5 @@ class GetLocationProperties(GetLocationLocators):
 
     @property
     def chooselocation(self):
-        return self.driver.find_element(*GetLocationLocators.LOCATION_KTM_PATAN)
+        return self.driver.find_element(*GetLocationLocators.LOCATION_BHAKTAPUR)
 
