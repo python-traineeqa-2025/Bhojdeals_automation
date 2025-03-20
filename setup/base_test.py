@@ -19,7 +19,7 @@ class BaseTest:
         self.driver=driver
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
-        cred_path=r"C:\Users\anushagi\OneDrive - Infinite Computer Solutions (India) Limited\Documents\Bhojdeals_automation\creds\cred.json"
+        cred_path=r"E:\Bhojdeals_automation\creds\cred.json"
         with open(cred_path,"r") as file:
             self.cred=json.load(file)
 

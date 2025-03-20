@@ -1,3 +1,4 @@
+import logging
 import time
 
 from selenium.webdriver import Keys
@@ -21,18 +22,21 @@ class CheckoutPage(CheckoutProperties):
         EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Proceed to check out']")))
         checkout_button.click()
         time.sleep(5)
+        logging.info("checkout button clicked")
 
         self.driver.execute_script('scrollBy(0,1000)')
         #click on add delivery button
         add_delivery_btn= self.wait.until(
         EC.element_to_be_clickable((By.XPATH, "//a[@class='addnew-btn']")))
         add_delivery_btn.click()
+        logging.info("add address clicked ")
 
         #enter address in search box
         add_address=self.add_deliver_address
         add_address.click()
         add_address.send_keys(address)
         # add_address.send_keys(Keys.ENTER)
+        logging.info("address added")
         time.sleep(5)
 
         #close the address popup
@@ -43,16 +47,22 @@ class CheckoutPage(CheckoutProperties):
         #choose option for call for confirmation
         call_confirmation=self.confirm_call
         call_confirmation.click()
+        logging.info("Call for confirmation checked")
         time.sleep(6)
 
         #delivery day
-        delivery_day =self.wait.until(
-        EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
+        delivery_day = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//your_xpath_here"))
+        )
+        logging.info("Element found in DOM")
+        # delivery_day =self.wait.until(
+        # EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
         delivery_day.click()
         time.sleep(6)
 
 
-        extra_note=self.wait.until(EC.element_to_be_clickable((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
+
+        extra_note=self.wait.until(EC.presence_of_element_located((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
         extra_note.click()
         extra_note.send_keys(note)
 

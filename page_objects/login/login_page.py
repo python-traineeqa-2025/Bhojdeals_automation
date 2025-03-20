@@ -10,14 +10,14 @@ class LoginPage(LoginProperties):
 
     def __init__(self,driver):
         self.driver=driver
+        self.wait=WebDriverWait(self.driver,10)
 
     def login_page(self,email,pwd):
 
         login_home=self.home_login
         login_home.click()
 
-        # email_ad=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,"//input[@placeholder='Email']")))
-        email_ad=self.email_input
+        email_ad=self.wait.until(EC.presence_of_element_located((By.XPATH,"//input[@placeholder='Email']")))
         email_ad.click()
         email_ad.send_keys(email)
 
