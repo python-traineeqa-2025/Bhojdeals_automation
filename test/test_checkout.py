@@ -46,7 +46,7 @@ class TestCheckout(BaseTest):
         checkout=CheckoutPage(self.driver)
         logging.info("Before checkout")
 
-        checkout.checkout_page("Baneshwor","Add extra chilli flakes")
+        checkout.checkout_page("New Baneshwor","Add extra chilli flakes")
         logging.info("After checkout")
 
         time.sleep(4)
