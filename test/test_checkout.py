@@ -41,14 +41,10 @@ class TestCheckout(BaseTest):
         add_cart = AddToCartPage(self.driver)
         add_cart.add_tocart_page()
         time.sleep(5)
-        logging.info("Checkingout")
 
         checkout=CheckoutPage(self.driver)
-        logging.info("Before checkout")
 
         checkout.checkout_page("New Baneshwor","Add extra chilli flakes")
-        logging.info("After checkout")
 
         time.sleep(4)
-        logging.info("checkout complete")
 

@@ -1,4 +1,3 @@
-
 import logging
 import time
 
@@ -37,7 +36,7 @@ class SearchPage(SearchProperties):
                     item.click()
                     break
 
-    # def invalid_search(self): #why is this called invalid search
+    # def invalid_search(self):
     #     searchbox = self.search_input
     #     searchbox.click()
     #     searchbox.send_keys("pizz")
