@@ -3,6 +3,7 @@ import time
 
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -32,7 +33,7 @@ class CheckoutPage(CheckoutProperties):
         add_delivery_btn.click()
         logging.info("add delivery address button clicked ")
 
-        add_address = self.add_delivery_address
+        add_address = self.wait.until(EC.element_to_be_clickable((By.XPATH,"//div[@class='address-map']//label//input")))
         add_address.click()
         add_address.send_keys(address)
         # add_address.send_keys(Keys.ENTER)
@@ -90,12 +91,21 @@ class CheckoutPage(CheckoutProperties):
         delivery_day.click()
         time.sleep(6)
         logging.info("delivery day set to tomorrow")
+
+        #add delivery exact time from dropdown
+        # choose_time=self.wait.until(EC.visibility_of_element_located((By.XPATH,"//select[contains(@class, 'mb-3 custom-select')]")))
+        # choose_time.click()
+        # drop=Select(choose_time)
         #
+        # drop.select_by_value("3:00 PM")
+        # time.sleep(5)
+
+
         extra_note=self.wait.until(EC.presence_of_element_located((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
         extra_note.click()
         extra_note.send_keys(note)
         # logging.info("Extra note added to the driver")
-        #
+
         payment=self.payment_method
         payment.click()
         logging.info("checked on the payment method")

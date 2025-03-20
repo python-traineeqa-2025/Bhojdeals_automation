@@ -29,7 +29,7 @@ class TestCheckout(BaseTest):
         logging.info("got location")
 
         search=SearchPage(self.driver)
-        search.search_page("amore pizza","Amore Pizza (Koteshwor)")
+        search.search_item("amore pizza","Amore Pizza (Koteshwor)")
         time.sleep(2)
         logging.info("search product")
 
@@ -43,8 +43,6 @@ class TestCheckout(BaseTest):
         time.sleep(5)
 
         checkout=CheckoutPage(self.driver)
-
         checkout.checkout_page("New Baneshwor","Add extra chilli flakes")
-
         time.sleep(4)
 

@@ -29,7 +29,7 @@ class TestAddToCart(BaseTest):
         time.sleep(5)
 
         search = SearchPage(self.driver)
-        search.search_page("amore pizza","Amore Pizza (Koteshwor)")
+        search.search_item("amore pizza","Amore Pizza (Koteshwor)")
         time.sleep(2)
 
         view_menu = ViewMenuPage(self.driver)

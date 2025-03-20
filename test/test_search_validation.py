@@ -1,68 +1,68 @@
 import logging
 import time
-
-
 from page_objects.get_location.getlocation_page import GetLocationPage
 from page_objects.search.search_page import SearchPage
 from setup.base_test import BaseTest
 
-
 class TestSearchValidation(BaseTest):
-    def test_search_validation(self):
+    def test_autocorrect_sorting(self):
         url = self.cred["base_url"]
         self.driver.get(url)
-
+                                        
         getlocation = GetLocationPage(self.driver)
         getlocation.getlocation_page()
 
         search = SearchPage(self.driver)
-        search.search_page("piz")
-        time.sleep(5)
+        search.search_item("piz","Pizza")
+        time.sleep(10)
+        logging.info("auto correct search completed")
 
-        #inf=self.driver.find_element(By.XPATH,"//div[@class='restaurant-type']//h2")
-        #self.assertTrue(inf.is_displayed(),"Pizza Hut(Thimi)")
+        # sort by popularity
+        search.sort_popularity()
+        time.sleep(10)
+        logging.info("sorted by popularity")
+
+        # sort by price
+        search.sort_price()
+        time.sleep(10)
+        logging.info("sorted by price")
+
 
     def test_filter(self):
         url = self.cred["base_url"]
         self.driver.get(url)
-
+        #get location
         getlocation = GetLocationPage(self.driver)
         getlocation.getlocation_page()
         logging.info("Got location")
+        time.sleep(10)
+        #search
         search = SearchPage(self.driver)
-        self.driver.execute_script('scrollBy(0,1000)')
-        search.category_filter()
-        time.sleep(5)
+        #deal filter
         search.deal_filter()
+        time.sleep(10)
+        logging.info("sorted by filter")
 
+
+        #cuisine filter
         self.driver.execute_script('scrollBy(0,1000)')
         search.cuisine_filter()
-        time.sleep(5)
+        time.sleep(10)
+
+        # self.driver.refresh()
+        # getlocation.getlocation_page()
 
 
 
-    # def test_category_filter(self):
-    #     url = self.cred["base_url"]
-    #     self.driver.get(url)
-    #
-    #     getlocation = GetLocationPage(self.driver)
-    #     getlocation.getlocation_page()
-    #     logging.info("Got location")
-    #
-    #     search = SearchPage(self.driver)
-    #
-    # def test_cuisine_filter(self):
-    #     url = self.cred["base_url"]
-    #     self.driver.get(url)
-    #
-    #     getlocation = GetLocationPage(self.driver)
-    #     getlocation.getlocation_page()
-    #     logging.info("Got location")
-    #
-    #     search = SearchPage(self.driver)
-    #     self.driver.execute_script('scrollBy(0,1000)')
-    #     search.cuisine_filter()
-    #     time.sleep(5)
+        # category filter
+        search.category_filter()
+        time.sleep(10)
+        logging.info("sorted by category")
+
+
+
+
+
 
 
 

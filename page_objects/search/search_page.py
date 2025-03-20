@@ -1,8 +1,10 @@
 import logging
 import time
 
+from selenium.webdriver.common import keys
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -13,11 +15,10 @@ class SearchPage(SearchProperties):
         self.driver = driver
         self.wait=WebDriverWait(self.driver,10)
 
-    def search_page(self,food,excepted=None): #can be named search_item
+    def search_item(self,food,excepted=None):
         searchbox = self.search_input
         searchbox.click()
         searchbox.send_keys(food)
-        # searchbox.send_keys("amore pizza")
         searchbox.send_keys(Keys.ENTER)
 
         self.wait.until(
@@ -25,34 +26,33 @@ class SearchPage(SearchProperties):
         )
 
         dropdown_item = self.dropdown_items
-        # if excepted:
-        for item in dropdown_item:
+        if excepted:
+            for item in dropdown_item:
 
-            logging.info(f"Found: {item.text}")
-            if excepted:
-                if item.text.strip() == excepted:
-                    # if item.text.strip() == "Amore Pizza (Koteshwor)":
-                    logging.info(f"{item.text.strip()} item matches with expected {excepted}")
-                    item.click()
-                    break
+                logging.info(f"Found: {item.text}")
+                if excepted:
+                    if item.text.strip() == excepted:
+                        logging.info(f"{item.text.strip()} item matches with expected {excepted}")
+                        item.click()
+                        break
 
-    # def invalid_search(self):
-    #     searchbox = self.search_input
-    #     searchbox.click()
-    #     searchbox.send_keys("pizz")
-    #     searchbox.send_keys(Keys.ENTER)
-    #
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.visibility_of_element_located((By.CLASS_NAME,"main-auto-suggestion")) #since this locator is used multiple times, can be added to locator/prop file and used from there
-    #     )
-    #
-    #     dropdown_item = self.dropdown_items
-    #     for item in dropdown_item:
-    #         # logging.info(f"Found: {item.text}")
-    #         if item.text.strip() == "Pepe Pizza (Radhe Radhe)":
-    #             logging.info("Clicking on pepe Pizza ")
-    #             item.click()
-    #             break
+
+    def sort_popularity(self):
+        sort_by_popularity=self.driver.find_element(By.XPATH,"//div[contains(@class,'pr-md-0')]//div/select")
+        sort_by_popularity.click()
+        drop=Select(sort_by_popularity)
+        drop.select_by_value("lowtohigh")
+        sort_by_popularity.send_keys(Keys.ESCAPE)
+        time.sleep(4)
+
+
+    def sort_price(self):
+        sort_by_price=self.driver.find_element(By.XPATH,"//div[contains(@class,'col-sm-6 col-md-6 col-xl-3')][2]/div/select")
+        sort_by_price.click()
+        d = Select(sort_by_price)
+        d.select_by_value("3")
+        sort_by_price.send_keys(Keys.ESCAPE)
+        time.sleep(5)
 
 
     def deal_filter(self):
@@ -67,5 +67,7 @@ class SearchPage(SearchProperties):
     def cuisine_filter(self):
         cuisine_filter=self.browse_cuisine
         cuisine_filter.click()
+
+
 
 
