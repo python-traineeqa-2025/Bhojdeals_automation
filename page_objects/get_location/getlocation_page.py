@@ -11,7 +11,7 @@ class GetLocationPage(GetLocationProperties):
         self.wait=WebDriverWait(self.driver,10)
 
     def getlocation_page(self):
-        get_locationpage=self.wait.until(EC.presence_of_element_located((By.XPATH,"//h2[normalize-space()='Get Food & Grocery delivered']")))
+        get_locationpage=self.wait.until(EC.presence_of_element_located(self.GETLOCATION))
         get_locationpage.click()
 
         choose_location=self.chooselocation

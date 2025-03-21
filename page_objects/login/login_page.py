@@ -17,7 +17,7 @@ class LoginPage(LoginProperties):
         login_home=self.home_login
         login_home.click()
 
-        email_ad=self.wait.until(EC.presence_of_element_located((By.XPATH,"//input[@placeholder='Email']")))
+        email_ad=self.wait.until(EC.presence_of_element_located(self.EMAIL))
         email_ad.click()
         email_ad.send_keys(email)
 

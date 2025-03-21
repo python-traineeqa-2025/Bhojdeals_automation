@@ -21,7 +21,7 @@ class CheckoutPage(CheckoutProperties):
 
         #checkout button click
         checkout_button = self.wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Proceed to check out']")))
+        EC.element_to_be_clickable(self.checkout_buttonclick))
         checkout_button.click()
         time.sleep(5)
         logging.info("checkout button clicked")
@@ -29,7 +29,7 @@ class CheckoutPage(CheckoutProperties):
         #click on add delivery button
         # self.driver.execute_script('scrollBy(0,1000)')
         add_delivery_btn= self.wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//a[@class='addnew-btn']")))
+        EC.element_to_be_clickable(self.add_delivery_button))
         add_delivery_btn.click()
         logging.info("add delivery address button clicked ")
 
@@ -39,7 +39,6 @@ class CheckoutPage(CheckoutProperties):
         time.sleep(5)
         self.driver.execute_script("arguments[0].click();", add_address)
         add_address.send_keys(address)
-
         logging.info("address added")
         time.sleep(5)
 
@@ -58,7 +57,7 @@ class CheckoutPage(CheckoutProperties):
 
         #delivery day
         delivery_day =self.wait.until(
-        EC.element_to_be_clickable((By.XPATH,"//div[@class='view']//li[2]")))
+        EC.element_to_be_clickable(self.DELIVERY_DAY))
         delivery_day.click()
         time.sleep(6)
         logging.info("delivery day set to tomorrow")
@@ -72,7 +71,7 @@ class CheckoutPage(CheckoutProperties):
         # time.sleep(5)
 
 
-        extra_note=self.wait.until(EC.presence_of_element_located((By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")))
+        extra_note=self.wait.until(EC.presence_of_element_located(self.DELIVERY_NOTE))
         extra_note.click()
         extra_note.send_keys(note)
         # logging.info("Extra note added to the driver")
