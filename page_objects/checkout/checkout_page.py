@@ -62,20 +62,12 @@ class CheckoutPage(CheckoutProperties):
         time.sleep(6)
         logging.info("delivery day set to tomorrow")
 
-        #add delivery exact time from dropdown
-        # choose_time=self.wait.until(EC.visibility_of_element_located((By.XPATH,"//select[contains(@class, 'mb-3 custom-select')]")))
-        # choose_time.click()
-        # drop=Select(choose_time)
-        #
-        # drop.select_by_value("3:00 PM")
-        # time.sleep(5)
-
-
+        #note to driver
         extra_note=self.wait.until(EC.presence_of_element_located(self.DELIVERY_NOTE))
         extra_note.click()
         extra_note.send_keys(note)
-        # logging.info("Extra note added to the driver")
 
+        #payment method
         payment=self.payment_method
         payment.click()
         logging.info("checked on the payment method")

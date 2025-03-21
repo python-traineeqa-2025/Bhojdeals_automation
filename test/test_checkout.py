@@ -15,7 +15,7 @@ class TestCheckout(BaseTest):
         url = self.cred["base_url"]
         self.driver.get(url)
         logging.info("driver initialized")
-        time.sleep(5)
+        time.sleep(3)
 
         login = LoginPage(self.driver)
         uname = self.cred["email"]
@@ -25,24 +25,24 @@ class TestCheckout(BaseTest):
 
         location = GetLocationPage(self.driver)
         location.getlocation_page()
-        time.sleep(5)
+        time.sleep(3)
         logging.info("got location")
 
         search=SearchPage(self.driver)
         search.search_item("amore pizza","Amore Pizza (Koteshwor)")
-        time.sleep(2)
+        time.sleep(3)
         logging.info("search product")
 
         view_menu = ViewMenuPage(self.driver)
         view_menu.view_menu_page()
         logging.info("View menu page")
-        time.sleep(5)
+        time.sleep(3)
 
         add_cart = AddToCartPage(self.driver)
         add_cart.add_tocart_page()
-        time.sleep(5)
+        time.sleep(3)
 
         checkout=CheckoutPage(self.driver)
         checkout.checkout_page("New Baneshwor","Add extra chilli flakes")
-        time.sleep(4)
+        time.sleep(3)
 

@@ -19,6 +19,6 @@ class TestLogin(BaseTest):
         pwd=self.cred["password"]
         logging.info("Password entered")
         loginpage.login_page(email,pwd)
-        time.sleep(10)
+        time.sleep(3)
 
 

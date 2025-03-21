@@ -18,6 +18,6 @@ class TestSearch (BaseTest):
 
         search = SearchPage(self.driver)
         search.search_item("amore pizza","Amore Pizza (Koteshwor)")
-        time.sleep(6)
+        time.sleep(3)
 
 
