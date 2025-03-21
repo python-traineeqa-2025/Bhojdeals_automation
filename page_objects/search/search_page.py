@@ -38,7 +38,7 @@ class SearchPage(SearchProperties):
 
 
     def sort_popularity(self):
-        sort_by_popularity=self.driver.find_element(By.XPATH,"//div[contains(@class,'pr-md-0')]//div/select")
+        sort_by_popularity=self.popularity_sort
         sort_by_popularity.click()
         drop=Select(sort_by_popularity)
         drop.select_by_value("lowtohigh")
@@ -47,7 +47,7 @@ class SearchPage(SearchProperties):
 
 
     def sort_price(self):
-        sort_by_price=self.driver.find_element(By.XPATH,"//div[contains(@class,'col-sm-6 col-md-6 col-xl-3')][2]/div/select")
+        sort_by_price=self.price_sort
         sort_by_price.click()
         d = Select(sort_by_price)
         d.select_by_value("3")
@@ -55,7 +55,7 @@ class SearchPage(SearchProperties):
         time.sleep(5)
 
 
-    def deal_filter(self):
+    def todays_deal(self):
         todaysdeal=self.filter
         todaysdeal.click()
         time.sleep(5)
@@ -67,6 +67,14 @@ class SearchPage(SearchProperties):
     def cuisine_filter(self):
         cuisine_filter=self.browse_cuisine
         cuisine_filter.click()
+
+    def all_restaurant(self):
+        select_all_restaurant=self.restaurant
+        select_all_restaurant.click()
+
+    def reset_filter(self):
+        reset_filter=self.filter_reset
+        reset_filter.click()
 
 
 

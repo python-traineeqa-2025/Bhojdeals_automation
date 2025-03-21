@@ -1,4 +1,3 @@
-
 from page_objects.search.search_locators import SearchLocators
 
 class SearchProperties:
@@ -26,3 +25,19 @@ class SearchProperties:
     @property
     def browse_cuisine(self):
         return self.driver.find_element(*SearchLocators.BROWSER_CUISINE)
+
+    @property
+    def popularity_sort(self):
+        return self.driver.find_element(*SearchLocators.SORT_POPULARITY)
+
+    @property
+    def price_sort(self):
+        return self.driver.find_element(*SearchLocators.SORT_PRICE)
+
+    @property
+    def restaurant(self):
+        return self.driver.find_element(*SearchLocators.ALL_RESTAURANT)
+
+    @property
+    def filter_reset(self):
+        return self.driver.find_element(*SearchLocators.RESET)

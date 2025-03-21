@@ -38,21 +38,21 @@ class TestSearchValidation(BaseTest):
         time.sleep(10)
         #search
         search = SearchPage(self.driver)
-        #deal filter
-        search.deal_filter()
+        #todays deal
+        search.todays_deal()
         time.sleep(10)
         logging.info("sorted by filter")
-
 
         #cuisine filter
         self.driver.execute_script('scrollBy(0,1000)')
         search.cuisine_filter()
+        logging.info("cuisine selected")
+
         time.sleep(10)
 
-        # self.driver.refresh()
-        # getlocation.getlocation_page()
-
-
+        search.all_restaurant()
+        search.reset_filter()
+        logging.info("Filter reset")
 
         # category filter
         search.category_filter()

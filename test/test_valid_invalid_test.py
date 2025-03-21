@@ -23,7 +23,6 @@ class TestValidInvalid(BaseTest):
 
         for type,credentials in cred.items():
             login = LoginPage(self.driver)
-            logging.info("login button clicked")
 
             email = credentials['email']
             logging.info(email)
@@ -32,19 +31,15 @@ class TestValidInvalid(BaseTest):
             logging.info(pwd)
 
             login.login_page(email,pwd)
+            logging.info("login button clicked")
+
 
             try:
                 invalid_message_email = self.driver.find_element(By.XPATH, "//span[@class='invalid-message']")
-                if invalid_message_email:
-
-                    logging.info({invalid_message_email.text})
-                else:
-                    # invalid_message_password = self.driver.find_element(By.XPATH, "//div[@role='alert']")
-                    # logging.info({invalid_message_password.text})
-                    logging.info("The password is incorrect")
+                logging.info(invalid_message_email.text)
 
             except NoSuchElementException:
-                print("The error message doesnot exist")
+                logging.info("Password or email is incorrect")
             finally:
                 time.sleep(10)
                 self.driver.back()
