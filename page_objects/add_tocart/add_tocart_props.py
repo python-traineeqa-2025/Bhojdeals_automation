@@ -10,3 +10,11 @@ class AddToCartProperties(AddToCartLocators):
     @property
     def add_item(self):
         return self.driver.find_element(*AddToCartLocators.ADD_ITEM)
+
+    @property
+    def item_name(self):
+        return self.driver.find_element(*AddToCartLocators.ITEM_NAME)
+
+    @property
+    def item_price(self):
+        return self.driver.find_element(*AddToCartLocators.ITEM_PRICE)
