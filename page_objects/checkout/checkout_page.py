@@ -33,52 +33,15 @@ class CheckoutPage(CheckoutProperties):
         add_delivery_btn.click()
         logging.info("add delivery address button clicked ")
 
-        # add_address = self.wait.until(
-        # EC.visibility_of_element_located((By.XPATH, "//div[@class='address-map']//label//input")))
-        # self.wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@class='address-map']//label//input"))).click()
 
-        # add_address = self.wait.until(EC.element_to_be_clickable((By.XPATH,"//div[@class='address-map']//label//input")))
-        # add_address.click()
         add_address=self.add_delivery_address
         self.driver.execute_script("arguments[0].scrollIntoView(true);", add_address)
-        time.sleep(1)  # Give time for any animations to complete
-        add_address.click()
+        time.sleep(5)
+        self.driver.execute_script("arguments[0].click();", add_address)
         add_address.send_keys(address)
-        # add_address.send_keys(Keys.ENTER)
+
         logging.info("address added")
         time.sleep(5)
-        # search_box = driver.find_element(By.XPATH, "//input[@type='text']")
-        # search_box.send_keys("New")
-        # WebDriverWait(self.driver, 5).until(
-        #     EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'pac-item')]"))
-        # )
-
-        # WebDriverWait(self.driver, 5).until(EC.presence_of_all_elements_located((By.XPATH, "//li")))
-        # # Use keyboard navigation to select the desired address
-        # actions = ActionChains(self.driver)
-        # actions.send_keys(Keys.DOWN).perform()  # Press Down Arrow
-        # actions.send_keys(Keys.DOWN).perform()  # Press Down Arrow again (repeat as needed)
-        # actions.send_keys(Keys.ENTER).perform()  # Press Enter to select the address
-        #
-        # # Wait a bit to ensure the selection is applied
-        # WebDriverWait(self.driver, 5).until(EC.text_to_be_present_in_element_value(SEARCH_BOX, "New Baneshwor"))
-        #
-        # print("Address selected successfully!")
-
-        # Get all suggestions
-        # suggestions = self.driver.find_elements(By.XPATH, "//div[contains(@class, 'pac-item')]")
-        #
-        # # Loop through the options and click the desired one
-        # for suggestion in suggestions:
-        #     logging.info(suggestion.text)  # Print all suggestions
-        #     if "New Baneshwor, Kathmandu, Nepal" in suggestion.text:  # Choose the specific address
-        #         suggestion.click()
-        #         break
-
-
-
-
-
 
 
 

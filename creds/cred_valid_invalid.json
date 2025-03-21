@@ -1,14 +1,14 @@
 {
   "invalid_email_valid_pwd": {
-    "email": "ramesh123thapa.com",
+    "email": "milanserhnvcgfrgmail.com",
     "pwd": "Qwerty88@@"
   },
   "valid_email_invalid_pwd": {
-    "email": "ramesh123@thapa.com",
+    "email": "milanserhnvcgfr@gmail.com",
     "pwd": "secret_sauce"
   },
   "invalid_email_invalid_pwd": {
-    "email": "ramesh123thapa.com",
+    "email": "milanserhnvcgfrgmail.com",
     "pwd": "secret_sauce"
   }
 }
