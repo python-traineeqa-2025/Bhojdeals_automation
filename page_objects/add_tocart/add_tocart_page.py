@@ -11,8 +11,8 @@ class AddToCartPage(AddToCartProperties):
         add_to_cart=self.add_button
         add_to_cart.click()
 
-        add_item=self.add_item
-        add_item.click()
+        quantity_add=self.add_quantity
+        quantity_add.click()
         item_name=self.item_name
         logging.info(f"Item added to cart:{item_name.text}")
         item_price=self.item_price

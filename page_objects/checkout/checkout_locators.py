@@ -8,7 +8,7 @@ class CheckoutLocators(object):
     CLOSE_ADDRESS_POPUP=(By.XPATH,"//img[@alt='cross']")
     CONFIRMATION_CALL=(By.XPATH,"//label[@for='call-yes']")
     #delivery day is set for tommorrow
-    DELIVERY_DAY=(By.XPATH,"//div[@class='view']//li[2]")
+    DELIVERY_DAY=(By.XPATH,"//a[normalize-space()='Tomorrow']")
 
     # DELIVERY_TIME=(By.XPATH,"//select[@id='__BVID__435']")
     DELIVERY_NOTE=(By.XPATH,"//div[contains(text(),'Driver Note')]/textarea")

@@ -8,8 +8,8 @@ class AddToCartProperties(AddToCartLocators):
         return self.driver.find_element(*AddToCartLocators.ADD_BUTTON)
 
     @property
-    def add_item(self):
-        return self.driver.find_element(*AddToCartLocators.ADD_ITEM)
+    def add_quantity(self):
+        return self.driver.find_element(*AddToCartLocators.ADD_QUANTITY)
 
     @property
     def item_name(self):

@@ -56,9 +56,10 @@ class CheckoutPage(CheckoutProperties):
         time.sleep(6)
 
         #delivery day
-        delivery_day =self.wait.until(
-        EC.element_to_be_clickable(self.DELIVERY_DAY))
-        delivery_day.click()
+        delivery_time= self.delivery_day
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", delivery_time)
+        time.sleep(5)
+        self.driver.execute_script("arguments[0].click();", delivery_time)
         time.sleep(6)
         logging.info("delivery day set to tomorrow")
 
