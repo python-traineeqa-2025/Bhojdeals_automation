@@ -43,6 +43,6 @@ class TestCheckout(BaseTest):
         time.sleep(3)
 
         checkout=CheckoutPage(self.driver)
-        checkout.checkout_page("New Baneshwor","Add extra chilli flakes")
+        checkout.checkout_page("New Baneshwor","Please call me when you arrive.")
         time.sleep(3)
 
